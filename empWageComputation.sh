@@ -1,6 +1,5 @@
 echo "Welcome to Employee Wage Computation Program"
 
-#!/bin/bash
 isPartTime=1
 isFullTime=2
 MaxHrsInMonth=4
@@ -9,6 +8,8 @@ numWorkingDays=20
 
 totalWorkHours=0
 totalWorkingDays=0
+
+declare -A empDailyWage
 
 function getWorkingHours()
 {
@@ -43,3 +44,4 @@ done
 
 totalSalary="$( calculateDailyWage $totalWageHours )"
 echo "Daily Wage = " ${empDailyWage[@]}
+echo "Daily Wage = " ${!empDailyWage[@]}
