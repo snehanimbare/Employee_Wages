@@ -3,11 +3,18 @@ echo "Welcome to Employee Wage Computation Program"
 #!/bin/bash -x
 
 empRatePerHr=20
-empHrs=8
-var=$(( RANDOM % 2 ))
-if [[ $var -eq 1 ]]
+isPartTime=1
+isFullTime=2
+
+var=$(( RANDOM % 3 ))
+if [[ $var -eq $isFullTime ]]
 then
-	echo salary=$(($empRatePerHr*$empHrs))
+empHrs=8
+elif [[ $var -eq $isPartTime ]]
+then
+empHrs=4
 else
-	echo salary=0
+empHrs=0
 fi
+salary=$(($empHrs*$empRatePerHr))
+echo "Salary= "$salary
